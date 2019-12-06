@@ -1,13 +1,9 @@
 const Express = require('express');
 
+const DevController = require('./controllers/DevController');
+
 const routes = Express.Router();
 
-routes.get('/', (req, res) => {
-    return res.json({message: `Criando API com Express e desnvolvendo app Airbnb ${req.query.name}`})
-})
-
-routes.post('/devs' , (req,res) =>{
-    return res.json(req.body);
-});
+routes.post('/devs' , DevController.store);
 
 module.exports = routes;
